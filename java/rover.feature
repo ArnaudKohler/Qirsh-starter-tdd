@@ -18,11 +18,11 @@ Given A rover with position (x=0, y=0) facing South
 When rover goes forward
 Then The Rover position is (x=0, y=-1) facing South
 
-Scenario: When facing Weast
+Scenario: When facing West
 
-Given A rover with position (x=0, y=0) facing Weast
+Given A rover with position (x=0, y=0) facing West
 When rover goes forward
-Then The Rover position is (x=-1, y=0) facing Weast
+Then The Rover position is (x=-1, y=0) facing West
 
 
 Feature: Moving backward
