@@ -1,17 +1,16 @@
 package info.dmerej;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class RoverTest {
 
     class Position {
         public int x;
         public int y;
-        public char direction;
+        public String direction;
 
-        public Position(int x, int y, char direction) {
+        public Position(int x, int y, String direction) {
             this.x = x;
             this.y = y;
             this.direction = direction;
@@ -22,11 +21,21 @@ public class RoverTest {
     class Rover {
         public Position position;
 
-        public Rover(int x, int y, char direction) {
+        public Rover(int x, int y, String direction) {
             position = new Position(x, y, direction);
         }
 
-        public void moveForward() {
+        public void moveForward(String orientation) {
+            switch(orientation) {
+                case "north":
+                    position.y++;
+                case "south":
+                    position.y--;
+                case "east":
+                    position.x++;
+                case "west":
+                    position.x--;
+            }
             position.y++;
         }
 
@@ -40,15 +49,50 @@ public class RoverTest {
     }
 
     @Test
-    void movingForwardTest() {
+    void movingForwardFacingNorthTest() {
         // Given a rover at position (0, 0) facing North
-        Rover rover = new Rover(0, 0, 'N');
+        Rover rover = new Rover(0, 0, "north");
 
         // When the rover moves forward
-        rover.moveForward();
+        rover.moveForward(rover.position.direction);
 
         // Then the rover should be at position (0, 1) facing North
         assertEquals(1, rover.getY());
+
+    }
+    @Test
+    void movingForwardFacingSouthTest() {
+        // Given a rover at position (0, 0) facing North
+        Rover rover = new Rover(0, 0, "south");
+
+        // When the rover moves forward
+        rover.moveForward(rover.position.direction);
+
+        // Then the rover should be at position (0, 1) facing North
+        assertEquals(-1, rover.getY());
+
+    }
+    @Test
+    void movingForwardFacingEastTest() {
+        // Given a rover at position (0, 0) facing North
+        Rover rover = new Rover(0, 0, "east");
+
+        // When the rover moves forward
+        rover.moveForward(rover.position.direction);
+
+        // Then the rover should be at position (0, 1) facing North
+        assertEquals(1, rover.getX());
+    }
+    @Test
+    void movingForwardFacingWestTest() {
+        // Given a rover at position (0, 0) facing North
+        Rover rover = new Rover(0, 0, "west");
+
+        // When the rover moves forward
+        rover.moveForward(rover.position.direction);
+
+        // Then the rover should be at position (0, 1) facing North
+        assertEquals(-1, rover.getX());
 
     }
 }
