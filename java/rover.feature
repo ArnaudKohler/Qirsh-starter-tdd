@@ -6,11 +6,11 @@ Given A rover with position (x=0, y=0) facing North
 When rover goes forward
 Then The Rover position is (x=0, y=1) facing North
 
-Scenario: When facing Est
+Scenario: When facing East
 
-Given A rover with position (x=0, y=0) facing Est
+Given A rover with position (x=0, y=0) facing East
 When rover goes forward
-Then The Rover position is (x=1, y=0) facing Est
+Then The Rover position is (x=1, y=0) facing East
 
 Scenario: When facing South
 
