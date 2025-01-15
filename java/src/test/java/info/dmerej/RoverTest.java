@@ -24,7 +24,6 @@ public class RoverTest {
 
     @ParameterizedTest
     @CsvFileSource(resources="./csv/movingBackward.csv", numLinesToSkip=1 ) 
-
     void movingBackwardTest(int x, int y, String direction, int expectedX, int expectedY) {
         // Given a rover at position (x, y)
         Rover rover = new Rover(x, y, direction);
