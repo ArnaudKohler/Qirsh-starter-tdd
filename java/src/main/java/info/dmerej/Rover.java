@@ -1,6 +1,6 @@
 package info.dmerej;
 
-class Rover {
+public class Rover {
     public Position position;
 
     public Rover(int x, int y, String direction) {
@@ -11,14 +11,17 @@ class Rover {
         switch(orientation) {
             case "north":
                 position.y++;
+                break;
             case "south":
                 position.y--;
+                break;
             case "east":
                 position.x++;
+                break;
             case "west":
                 position.x--;
+                break;
         }
-        position.y++;
     }
 
     public int getX() {
