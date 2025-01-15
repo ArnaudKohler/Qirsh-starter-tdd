@@ -1,0 +1,5 @@
+x,y,direction,expectedX, expectedY
+0,0,north,0,-1
+0,0,south,0,1
+0,0,east,-1,0
+0,0,west,1,0
