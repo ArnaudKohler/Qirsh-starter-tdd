@@ -1,6 +1,8 @@
 package info.dmerej;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
  
@@ -33,6 +35,32 @@ public class RoverTest {
         // Then the rover should be at the expected position
         assertEquals(expectedX, rover.getX());
         assertEquals(expectedY, rover.getY());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources="./csv/turnLeft.csv", numLinesToSkip=1 )
+    void turnLeftTest(int x, int y, String direction, String expectedDirection) {
+        // Given a rover facing north
+        Rover rover = new Rover(x, y, direction);
+
+        // When the rover turns left
+        rover.turnLeft();
+
+        // Then the rover should be facing west
+        assertEquals(expectedDirection, rover.getDirection());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources="./csv/turnRight.csv", numLinesToSkip=1 )
+    void turnRightTest(int x, int y, String direction, String expectedDirection) {
+        // Given a rover facing north
+        Rover rover = new Rover(x, y, direction);
+
+        // When the rover turns left
+        rover.turnRight();
+
+        // Then the rover should be facing west
+        assertEquals(expectedDirection, rover.getDirection());
     }
 
 }
