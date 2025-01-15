@@ -41,8 +41,13 @@ public class RoverTest {
 
     @Test
     void movingForwardTest() {
+        // Given a rover at position (0, 0) facing North
         Rover rover = new Rover(0, 0, 'N');
+
+        // When the rover moves forward
         rover.moveForward();
+
+        // Then the rover should be at position (0, 1) facing North
         assertEquals(1, rover.getY());
 
     }
